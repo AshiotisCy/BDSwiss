@@ -14,7 +14,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cors());
 
 mongoose.connect(
-  "mongodb+srv://admin:admin@users.mpugfke.mongodb.net/?retryWrites=true&w=majority"
+  "mongodb+srv://admin:admin@users.yrd0tms.mongodb.net/?retryWrites=true&w=majority"
 ),
   {
     useNewUrlParser: true,
