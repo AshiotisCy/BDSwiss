@@ -1,0 +1,31 @@
+GET http://localhost:3001/users/
+
+###
+
+POST http://localhost:3001/users/login/
+Content-Type: application/json
+
+{
+    "email": "b@b.com",
+    "password": "Testing123!"
+}
+
+###
+
+GET http://localhost:3001/users/6383e788c8b5a6300f34718e
+
+###
+
+POST http://localhost:3001/users 
+Content-Type: application/json
+
+{
+    "name": "George",
+    "email": "g.g@asdffdgfghdfasadf.com",
+    "password": "Testing123!"
+}
+
+###
+
+DELETE http://localhost:3001/users/63850a485a8dd78a8de9c059
+
