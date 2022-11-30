@@ -8,11 +8,19 @@ import Protected from "./helper/Protected";
 
 const TitleWrapper = styled.div`
   display: flex;
-  gap: 5px;
+  flex-direction: column;
   font-size: 25px;
 `;
 
+const Wrapper = styled.div`
+  display: flex;
+`;
+
 const User = styled.div`
+  color: ${colors.blue};
+`;
+
+const LogoutLink = styled.span`
   color: ${colors.darkgrey};
 
   :hover {
@@ -40,7 +48,7 @@ const Dashboard = () => {
       .then((res) => setLoggedUser(res.data));
   }, []);
 
-  const title = `Welcome `;
+  const title = "Welcome";
 
   const handleLogout = () => {
     sessionStorage.setItem("UserId", "");
@@ -52,21 +60,24 @@ const Dashboard = () => {
   return (
     <Protected isLoggedIn={isValid}>
       <div id="dashboard">
-        <div>Dashboard</div>
         <TitleWrapper>
-          <div>{title}</div>
+          <Wrapper>
+            <div>{title}</div>&nbsp;
+            <User>{`${loggedUser?.name}!`}</User>
+          </Wrapper>
           <Popover
             content={
-              <User className="logout" onClick={() => handleLogout()}>
-                Logout
-              </User>
+              <LogoutLink className="logout" onClick={() => handleLogout()}>
+                {"Logout"}
+              </LogoutLink>
             }
             title="Are you sure you want to logout?"
             trigger="click"
             open={isPopoverOpen}
             onOpenChange={() => setIsPopoverOpen(!isPopoverOpen)}
           >
-            <User>{loggedUser?.name}</User>
+            <span>{"To logout click "}</span>
+            <LogoutLink>{"here."}</LogoutLink>
           </Popover>
         </TitleWrapper>
       </div>
